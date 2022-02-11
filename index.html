@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kredytowy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="app-calc">
+    <header>
+        <h1 class="app-calc__header">Kalkulator Kredytowy</h1>
+    </header>
+    <section class="data">
+        <form action="" method="get" class="data-form">
+            <div class="app-calc__item">
+                <label for="amount">Kwota kredytu</label>
+                <input type="number" min="0" step="1" pattern="\d*" name="amount" placeholder="Wprowadź kwotę kredytu"
+                    class="data-form__form-item data-form__amount">
+            </div>
+            <div class="app-calc__installments">
+                <div class="app-calc__item app-calc__item-installments">
+                    <label for="number-of-installments">Okres kredytowania</label>
+                    <input type="number" min="0" name="number-of-installments" placeholder="Podaj ilość"
+                        class="data-form__number-of-installments data-form__form-item">
+                </div>
+                <div class="app-calc__item app-calc__item-years-months">
+                    <label for="years/months">&nbsp;</label>
+                    <select name="years/months" class="data-form__form-item data-form__years-months">
+                        <option value="Lata">Lata</option>
+                        <option value="Miesiące">Miesiące</option>
+                    </select>
+                </div>
+            </div>
+            <div class="app-calc__item">
+                <label for="interest">Oprocentowanie (%)</label>
+                <input type="number" name="interest" class="data-form__interest data-form__form-item">
+            </div>
+            <div class="app-calc__item">
+                <label for="commission">Prowizja (%)</label>
+                <input type="number" name="commission" class="data-form__commission data-form__form-item">
+            </div>
+            <div class="app-calc__item">
+                <div class="app-calc__buttons buttons">
+                    <button type="reset" class="app-calc__btn reset-button">Reset</button>
+                    <button type="submit" class="app-calc__btn compute-button">Oblicz</button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+    <section class="results">
+        <div class="results__buttons buttons">
+            <button class="app-calc__btn stable">Raty równe</button>
+            <button class="app-calc__btn decreasing">Raty malejące</button>
+        </div>
+        <div class="result result__stable-installments stable">
+            <h2>Raty równe</h2>
+            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestiae
+                vitae, tempore doloribus ea velit expedita illum asperiores rerum est dolor eius, tenetur nisi quis,
+                eligendi animi esse architecto eum similique consequuntur! Voluptate ea veniam ex quis quasi. Illum
+                nulla facere voluptatibus debitis recusandae excepturi repudiandae dolore suscipit tenetur ipsum.</p>
+        </div>
+        <div class="result result__decreasing-installments decreasing hide">
+            <h2>Raty malejące</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit modi, veniam nam corrupti pariatur
+                iure distinctio voluptatem saepe ipsum nesciunt possimus obcaecati, aspernatur beatae cumque perferendis
+                autem culpa, vel ducimus rerum aliquid doloremque? Facilis consequuntur expedita inventore fuga
+                reiciendis numquam, cumque maiores vero unde ullam eaque impedit eius repudiandae similique.</p>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

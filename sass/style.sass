@@ -1,0 +1,73 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+.hide
+    display: none
+
+
+
+.app-calc
+    color: #fdfdfd
+    text-shadow: 1px 1px #525252
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)
+    font-family: sans-serif
+    &__header
+        color: #fdfdfd
+        text-shadow: 2px 2px #525252
+        margin: 20px 20px
+    &__item
+        display: flex
+        flex-direction: column
+        padding: 10px 0px
+        &-installments
+            flex-grow: 1
+        &-years-months
+
+    &__installments
+        display: flex
+        justify-content: center
+        align-items: stretch
+    &__buttons
+        display: flex
+        justify-content: space-around
+    &__btn
+        background-color: #525252
+        width: 100px
+        height: 40px
+        border-radius: 20px
+        border: 0
+        color: #fdfdfd
+
+.data, .results
+    margin: 20px
+
+.data-form
+    display: flex
+    flex-direction: column
+    ::-webkit-input-placeholder
+        color: #797979
+    &__form-item
+        background-color: #fdfdfd
+        margin-top: 5px
+        padding: 0 15px
+        height: 40px
+        border: 0
+        border-radius: 20px
+    &__number-of-installments
+        border-radius: 20px 0 0 20px
+    &__years-months
+        width: 103px
+        border-radius: 0 20px 20px 0
+        border-left: 1px solid #d6d6d6
+.results
+    background-color: #fdfdfd
+    padding: 20px
+    border: 0
+    border-radius: 20px
+    color: #525252
+    text-shadow: none
+
+.error
+    border: 3px solid red
