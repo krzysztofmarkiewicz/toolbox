@@ -1,3 +1,2 @@
-# loancalculator
-Calculator for calculating loan installment
-
+# toolbox
+Site with few app
