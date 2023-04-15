@@ -16,3 +16,5 @@ if (switchDayNigth.checked){
     document.querySelector('html').setAttribute('data-theme', 'light')
     localStorage.setItem('theme', 'light');
 }})
+
+// console.log(switchDayNigth);
