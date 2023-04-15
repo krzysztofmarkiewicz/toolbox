@@ -1,28 +1,100 @@
+:root {
+  --firstColor: rgb(241, 241, 233);
+  --secondColor: rgb(255, 255, 247);
+  --thirdColor: rgb(110, 107, 96);
+  --thirdColorDarker: rgba(110, 107, 96, .95);
+  --thirdColorDarkest: rgba(110, 107, 96, .80);
+  --fourthColor: rgb(158, 3, 3);
+}
+
+html[data-theme=dark] {
+  --firstColor: rgb(44, 44, 44);
+  --secondColor: rgb(78, 78, 78);
+  --thirdColor: rgb(222, 221, 221);
+  --thirdColorDarker: rgba(222, 221, 221,.95);
+  --thirdColorDarkest: rgba(222, 221, 221,.80);
+  --thirdColorL: rgba(222, 221, 221, 90);
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: var(--thirdColor);
 }
 
-.hide {
-  display: none;
+body {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--secondColor);
 }
 
-.app-calc {
-  color: #fdfdfd;
-  text-shadow: 1px 1px #525252;
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  font-family: sans-serif;
+.page-container {
+  position: relative;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
 }
 
-.app-calc__header {
-  color: #fdfdfd;
-  text-shadow: 2px 2px #525252;
-  margin: 20px 20px;
+nav {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: var(--firstColor);
+  border-left: 1px solid var(--thirdColor);
+  overflow: scroll;
+}
+nav h1 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+nav ul {
+  list-style: none;
+}
+nav ul a {
+  font-size: 18px;
+  text-decoration: none;
+}
+nav ul a:hover {
+  color: var(--fourthColor);
 }
 
-.app-calc__item {
+.activeNavItem {
+  color: var(--fourthColor);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.app {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,16 +102,22 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10px 0px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  min-width: 300px;
+  position: relative;
+  margin-top: 30px;
+  width: 600px;
+  background-color: var(--secondColor);
+  border-radius: 50px;
+  padding: 20px;
+  overflow: hidden;
 }
-
-.app-calc__item-installments {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.app__header {
+  text-align: center;
+  margin: 20px 20px;
 }
-
-.app-calc__installments {
+.app__items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,22 +128,52 @@
       -ms-flex-align: stretch;
           align-items: stretch;
 }
-
-.app-calc__buttons {
+.app__items-grows {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.app__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 0px;
+}
+.app__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-
-.app-calc__btn {
-  background-color: #525252;
+.app__buttons--calc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.app__btn {
+  background-color: var(--thirdColor);
   width: 100px;
   height: 40px;
   border-radius: 20px;
   border: 0;
-  color: #fdfdfd;
+  color: var(--firstColor);
+}
+.app__btn--calc {
+  width: 100%;
+  font-size: 30px;
+}
+.app__btn:hover {
+  background-color: var(--thirdColorDarker);
+}
+.app__btn:active {
+  background-color: var(--thirdColorDarkest);
 }
 
 .data, .results {
@@ -81,40 +189,99 @@
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
 .data-form ::-webkit-input-placeholder {
-  color: #797979;
+  color: var(--thirdColor);
 }
-
 .data-form__form-item {
-  background-color: #fdfdfd;
+  background-color: var(--firstColor);
   margin-top: 5px;
   padding: 0 15px;
   height: 40px;
   border: 0;
   border-radius: 20px;
 }
-
-.data-form__number-of-installments {
+.data-form__number {
   border-radius: 20px 0 0 20px;
 }
-
-.data-form__years-months {
+.data-form__years-months, .data-form__currency {
   width: 103px;
   border-radius: 0 20px 20px 0;
   border-left: 1px solid #d6d6d6;
 }
 
 .results {
-  background-color: #fdfdfd;
-  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 20px 0;
+}
+.results__buttons {
+  width: 50%;
+}
+.results__buttons .result-button {
+  width: 100%;
+  background-color: transparent;
   border: 0;
-  border-radius: 20px;
-  color: #525252;
-  text-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+.results__buttons .result-button--active {
+  border-bottom: 2px solid;
+  padding: 0 40px;
+}
+.results .result {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  margin: 20px;
+  overflow: scroll;
+  word-break: break-all;
+}
+.results .result p {
+  margin: 5px;
+}
+
+.currency-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.search-currency-wrap .search-currency {
+  width: 100%;
+}
+
+.currency-table {
+  table-layout: fixed;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+}
+.currency-table tr {
+  line-height: 30px;
+}
+.currency-table th {
+  line-height: 50px;
+  border-bottom: 2px solid var(--thirdColor);
 }
 
 .error {
   border: 3px solid red;
 }
-/*# sourceMappingURL=style.css.map */
+
+.hide {
+  display: none;
+}
+
+.opacity {
+  opacity: 1;
+}/*# sourceMappingURL=style.css.map */

@@ -1,45 +1,137 @@
+:root
+    --firstColor: rgb(241, 241, 233)
+    --secondColor: rgb(255, 255, 247)
+    --thirdColor: rgb(110, 107, 96)
+    --thirdColorDarker: rgba(110, 107, 96, .95)
+    --thirdColorDarkest: rgba(110, 107, 96, .80)
+    --fourthColor: rgb(158, 3, 3)
+html[data-theme="dark"]
+    --firstColor: rgb(44, 44, 44)
+    --secondColor: rgb(78, 78, 78)
+    --thirdColor: rgb(222, 221, 221)
+    --thirdColorDarker: rgba(222, 221, 221,.95)
+    --thirdColorDarkest: rgba(222, 221, 221,.80)
+    --thirdColorL: rgba(222, 221, 221, 90)
+
+
+$navWidth: 300px
+
 *
     box-sizing: border-box
     margin: 0
     padding: 0
-
-.hide
-    display: none
+    color: var(--thirdColor)
 
 
 
-.app-calc
-    color: #fdfdfd
-    text-shadow: 1px 1px #525252
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)
-    font-family: sans-serif
+
+body
+    position: relative
+    font-family: 'Montserrat', sans-serif
+    background-color: var(--secondColor)
+    
+    
+
+.page-container
+    position: relative
+    width: 100vw
+    display: grid
+    grid-template-columns: 1fr $navWidth
+    grid-template-rows: 1fr
+    gap: 0px 0px
+    grid-template-areas: ". ."
+    
+
+//---NAVIGATION--------------------------------------------------------
+nav
+    position: fixed
+    width: $navWidth
+    height: 100%
+    top: 0
+    right: 0
+    padding: 20px
+    background-color: var(--firstColor)
+    border-left: 1px solid var(--thirdColor)
+    overflow: scroll
+    h1
+        font-weight: 700
+        margin-bottom: 20px
+    ul
+        list-style: none
+        a
+            font-size: 18px
+            text-decoration: none
+            &:hover
+                color: var(--fourthColor)
+
+.activeNavItem
+    color: var(--fourthColor)
+//---MAIN--------------------------------------------------------
+.wrap-app
+
+main
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-content: center
+    align-items: center
+    flex-wrap: wrap
+    // height: 100vh
+    overflow: scroll
+.app
+    opacity: 0
+    transition: opacity .3s
+    display: flex
+    flex-direction: column
+    align-self: center
+    min-width: 300px
+    position: relative
+    margin-top: 30px
+    width: 600px
+    // max-width: 400px
+    background-color: var(--secondColor)
+    border-radius: 50px
+    padding: 20px
+    overflow: hidden
     &__header
-        color: #fdfdfd
-        text-shadow: 2px 2px #525252
+        text-align: center
         margin: 20px 20px
+    &__items
+        display: flex
+        justify-content: center
+        align-items: stretch
+        &-grows
+            flex-grow: 1
     &__item
         display: flex
         flex-direction: column
         padding: 10px 0px
-        &-installments
-            flex-grow: 1
-        &-years-months
-
-    &__installments
-        display: flex
-        justify-content: center
-        align-items: stretch
     &__buttons
         display: flex
         justify-content: space-around
+        &--calc
+            display: grid
+            grid-template-columns: repeat(4, 1fr)
+            grid-template-rows: repeat(5, 1fr)
+            grid-column-gap: 10px
+            grid-row-gap: 10px
+
     &__btn
-        background-color: #525252
+        background-color: var(--thirdColor)
         width: 100px
         height: 40px
         border-radius: 20px
         border: 0
-        color: #fdfdfd
+        color: var(--firstColor)
+        &--calc
+            width: 100%
+            font-size: 30px
 
+        &:hover
+            background-color: var(--thirdColorDarker)
+
+        &:active
+            background-color: var(--thirdColorDarkest)
 .data, .results
     margin: 20px
 
@@ -47,27 +139,80 @@
     display: flex
     flex-direction: column
     ::-webkit-input-placeholder
-        color: #797979
+        color: var(--thirdColor)
     &__form-item
-        background-color: #fdfdfd
+        background-color: var(--firstColor)
         margin-top: 5px
         padding: 0 15px
         height: 40px
         border: 0
         border-radius: 20px
-    &__number-of-installments
+    &__number
         border-radius: 20px 0 0 20px
-    &__years-months
+    &__years-months,&__currency
         width: 103px
         border-radius: 0 20px 20px 0
         border-left: 1px solid #d6d6d6
+
+
 .results
-    background-color: #fdfdfd
-    padding: 20px
-    border: 0
-    border-radius: 20px
-    color: #525252
-    text-shadow: none
+    display: flex
+    position: relative
+    width: 100%
+    height: 200px
+    margin: 20px 0
+    &__buttons
+        width: 50%
+        .result-button
+            width: 100%
+            background-color: transparent
+            border: 0
+            padding: 0
+            margin: 0
+            &--active
+                border-bottom: 2px solid
+                padding: 0 40px
+    .result
+        position: absolute
+        left: 0
+        width: 100%
+        height: 160px
+        margin: 20px
+        overflow: scroll
+        word-break: break-all
+        p
+            margin: 5px
+.currency-list
+    display: flex
+    flex-direction: column
+.search-currency-wrap
+    .search-currency
+        width: 100%
+    
+
+
+.currency-table 
+    table-layout: fixed
+    margin: auto
+    width: 100%
+    text-align: center
+    border-spacing: 0
+    tr
+        line-height: 30px        
+    th
+        line-height: 50px        
+        border-bottom: 2px solid var(--thirdColor)
+    
+
 
 .error
     border: 3px solid red
+
+.hide
+    display: none
+
+
+.opacity
+    opacity: 1
+
+

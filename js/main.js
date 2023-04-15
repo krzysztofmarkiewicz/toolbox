@@ -1,86 +1,41 @@
-const amount = document.querySelector('.data-form__amount');
-const installments = document.querySelector('.data-form__number-of-installments');
-const selectYearsMonths = document.querySelector('.data-form__years-months');
-const interest = document.querySelector('.data-form__interest');
-const commission = document.querySelector('.data-form__commission');
-const resetBtn = document.querySelector('.app-calc__buttons .reset-button');
-const computeBtn = document.querySelector('.app-calc__buttons .compute-button');
-const resultsBtns = document.querySelectorAll('.results__buttons .app-calc__btn');
-const results = document.querySelectorAll('.result');
-const resultStable = document.querySelector('.result__stable-installments')
-const resultDecreasing = document.querySelector('.result__decreasing-installments')
+const navUl = document.querySelector('nav ul')
+const headersSections = document.querySelectorAll('h2')
 
-const allInputs = document.querySelectorAll('.data-form__form-item')
-
-const clearError = el => {
-    el.classList.remove('error')
-}
-
-const validateForm = input => {
-    input.forEach(el => {
-        if (el.value <= 0) {
-            el.classList.add('error')
-            el.value = ''
-            el.placeholder = 'Źle wypełniony formularz. Zerknij do pomocy.'
-        }
-    })
-}
-const checkErrors = () => {
-    
-    let errors = 0
-
-    allInputs.forEach(e => {
-        if (e.classList.contains('error')) {
-            errors++
-        }
-    })
-
-    if (errors == 0) {
-        // resultStable.lastElementChild.innerHTML = ''
-        // resultDecreasing.lastElementChild.innerHTML = ''
-        calculate()
-    } else {
-        errorInfo()
-        
-    }
-}
-
-const errorInfo = () => {
-    resultStable.lastElementChild.innerHTML = 'ŹLE, ŹLE, ŹLE'
-    resultDecreasing.lastElementChild.innerHTML = 'ŹLE, ŹLE, ŹLE'
-}
-
-const calculate = () => {
-    resultStable.lastElementChild.innerHTML = amount.value * installments.value
-    resultDecreasing.lastElementChild.innerHTML = amount.value * installments.value * 1000
-}
-
-computeBtn.addEventListener('click', el => {
-
-    el.preventDefault()
-    allInputs.forEach(e => {
-        clearError(e)
-    })
-    validateForm([installments, interest, commission, amount])
-    // calculate()
-    checkErrors()
+//generate menu from headers of sections
+headersSections.forEach(el=>{
+const navItem = document.createElement('li')
+navItem.innerHTML=`<a href='#'>${el.innerHTML}</a>`
+navUl.appendChild(navItem)
 })
 
+window.onload=()=>{
+const navItems = document.querySelectorAll('nav ul li')
+navItems.forEach(el=>{
+    el.addEventListener('click', (e)=>{
+        
+        navItems.forEach(ele=>{
+    ele.children[0].classList.remove('activeNavItem')
+})
+e.target.classList.add('activeNavItem')
 
-
-//wyświetla odpiwiedni wynik 
-let resultBtn;
-
-resultsBtns.forEach(el => {
-    el.addEventListener('click', x => {
-        resultBtn = el.innerHTML
-
-        results.forEach(el => {
-            if (resultBtn == el.firstElementChild.innerHTML) {
-                el.classList.remove('hide')
-            } else {
-                el.classList.add('hide')
-            }
+        headersSections.forEach(elem=>{
+           e.preventDefault()
+           if(!elem.parentElement.classList.contains('active'))
+            elem.parentElement.classList.remove('opacity')
+const changeApp=()=>{
+            if(elem.innerText==e.target.innerText){
+                elem.parentElement.classList.remove('hide')
+                const showElem=()=>{
+                    elem.parentElement.classList.add('opacity')
+                    elem.parentElement.classList.add('active')
+                }
+setTimeout(showElem,150)
+            }else{
+                    elem.parentElement.classList.add('hide')
+                    elem.parentElement.classList.remove('active')
+            }}
+            setTimeout(changeApp, 150)
         })
     })
 })
+}
