@@ -1,2 +1,3 @@
 # loancalculator
-Calculator for calculating loan installments 
+Calculator for calculating loan installment
+
