@@ -92,7 +92,6 @@ main {
 }
 
 .app {
-  opacity: 0;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   display: -webkit-box;
@@ -150,7 +149,7 @@ main {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-.app__buttons--calc {
+.app__buttons--mathcalc {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -165,9 +164,12 @@ main {
   border: 0;
   color: var(--firstColor);
 }
-.app__btn--calc {
+.app__btn--mathcalc {
   width: 100%;
   font-size: 30px;
+}
+.app__btn--mathcalc0 {
+  grid-area: 5/1/6/3;
 }
 .app__btn:hover {
   background-color: var(--thirdColorDarker);
@@ -199,6 +201,11 @@ main {
   height: 40px;
   border: 0;
   border-radius: 20px;
+}
+.data-form__form-item--mathCalc {
+  text-align: right;
+  cursor: pointer;
+  font-size: 30px;
 }
 .data-form__number {
   border-radius: 20px 0 0 20px;

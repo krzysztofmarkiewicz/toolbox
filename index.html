@@ -1257,40 +1257,39 @@
                     </div>
                 </div>
             </section>
-            <section class="app app-calc">
+            <section class="app app-mathcalc">
                 <h2 class="app__header">Kalkulator</h2>
                 <div class="wrap-app">
                     <div class="data">
                         <form action="" method="get" class="data-form">
                             <div class="app__item">
                                 <label for="mathCalc">Kwota kredytu</label>
-                                <input type="number" min="0" max="3000000" step="1" pattern="\d*" name="mathCalc"
-                                    placeholder="" class="data-form__form-item data-form__amount" value="0">
+                                <input type="number" readonly="readonly" min="0" max="3000000" step="1" pattern="\d*" name="mathCalc"
+                                    placeholder="" class="data-form__form-item data-form__form-item--mathCalc mathCalcResult" value="0">
                             </div>
                         </form>
 
                         <div class="app__item">
-                            <div class="app__buttons app__buttons--calc buttons">
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">C</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">+/-</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">%</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">/</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">1</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">2</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">3</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">X</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">4</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">5</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">6</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">-</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">7</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">8</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">9</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">+</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn--0"
-                                    style="grid-area: 5 / 1 / 6 / 3">0</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">,</button>
-                                <button type="submit" class="app__btn app__btn--calc mathCalcBtn">=</button>
+                            <div class="app__buttons app__buttons--mathcalc buttons">
+                                <button type="reset" type-btn="" class="app__btn app__btn--mathcalc mathCalcBtn">C</button>
+                                <button type="submit" type-btn="" class="app__btn app__btn--mathcalc mathCalcBtn">+/-</button>
+                                <button type="submit" type-btn="operatorr" class="app__btn app__btn--mathcalc mathCalcBtn">%</button>
+                                <button type="submit" type-btn="operator" class="app__btn app__btn--mathcalc mathCalcBtn">/</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">1</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">2</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">3</button>
+                                <button type="submit" type-btn="operator" class="app__btn app__btn--mathcalc mathCalcBtn">X</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">4</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">5</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">6</button>
+                                <button type="submit" type-btn="operator" class="app__btn app__btn--mathcalc mathCalcBtn">-</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">7</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">8</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn">9</button>
+                                <button type="submit" type-btn="operator" class="app__btn app__btn--mathcalc mathCalcBtn">+</button>
+                                <button type="submit" type-btn="number" class="app__btn app__btn--mathcalc mathCalcBtn app__btn--mathcalc0">0</button>
+                                <button type="submit" class="app__btn app__btn--mathcalc mathCalcBtn">,</button>
+                                <button type="submit" type-btn="operator" class="app__btn app__btn--mathcalc mathCalcBtn">=</button>
                             </div>
                         </div>
 
@@ -1304,7 +1303,7 @@
                         </div>
                         <div class="results__buttons ">
                             <button class="result-button saveResultsBtn">Zapisane wyniki</button>
-                            <div class="result saveResults hide"> eeeee
+                            <div class="result saveResults "> eeeee
 
 
                             </div>
@@ -1319,6 +1318,7 @@
     <script src="js/main.js"></script>
     <script src="js/app_loancalc.js"></script>
     <script src="js/app_currency.js"></script>
+    <script src="js/app_mathcalc.js"></script>
     <script src="js/test.js"></script>
 
 </body>

@@ -79,7 +79,7 @@ main
     // height: 100vh
     overflow: scroll
 .app
-    opacity: 0
+    // opacity: 0
     transition: opacity .3s
     display: flex
     flex-direction: column
@@ -109,7 +109,7 @@ main
     &__buttons
         display: flex
         justify-content: space-around
-        &--calc
+        &--mathcalc
             display: grid
             grid-template-columns: repeat(4, 1fr)
             grid-template-rows: repeat(5, 1fr)
@@ -123,9 +123,12 @@ main
         border-radius: 20px
         border: 0
         color: var(--firstColor)
-        &--calc
+        &--mathcalc
             width: 100%
             font-size: 30px
+        &--mathcalc0
+            grid-area: 5 / 1 / 6 / 3
+        
 
         &:hover
             background-color: var(--thirdColorDarker)
@@ -147,6 +150,11 @@ main
         height: 40px
         border: 0
         border-radius: 20px
+        &--mathCalc
+            text-align: right
+            cursor: pointer
+            font-size: 30px
+
     &__number
         border-radius: 20px 0 0 20px
     &__years-months,&__currency
