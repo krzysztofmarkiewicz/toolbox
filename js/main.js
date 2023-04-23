@@ -1,5 +1,6 @@
 const navUl = document.querySelector('nav ul')
 const headersSections = document.querySelectorAll('h2')
+const menuBtn = document.querySelector('.menu-btn')
 
 //generate menu from headers of sections
 headersSections.forEach(el=>{
@@ -39,3 +40,11 @@ setTimeout(showElem,150)
     })
 })
 }
+
+
+menuBtn.addEventListener('click', (e)=>{
+e.target.closest('.nav').classList.toggle('nav--hide')
+e.target.children[0].classList.toggle('change')
+e.target.children[1].classList.toggle('change')
+e.target.children[2].classList.toggle('change')
+})

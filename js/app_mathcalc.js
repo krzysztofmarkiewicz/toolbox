@@ -46,18 +46,18 @@ const funct = (e) => {
     if (e.target.getAttribute('type-btn') === 'operator') {
         const addToHistory = () => {
             const elemHistory = document.createElement('p')
-            elemHistory.innerHTML = `${recentResult} ${recentOperator} ${recentNumber}=${result}`
+            elemHistory.innerHTML = `${recentResult} ${recentOperator} ${recentNumber}=${parseFloat(result)}`
             history.appendChild(elemHistory)
         }
         const setResult = (el) => {
-            recentResult = result
-            recentNumber = currentNumber
+            recentResult = parseFloat(result)
+            recentNumber = parseFloat(currentNumber)
             recentOperator = operator
 
             result = parseFloat(el)
             operator = e.target.innerText
             currentNumber = 0
-            resultInput.value = result
+            resultInput.value = parseFloat(result)
         }
         if (result === '') {
             setResult(resultInput.value)
@@ -115,3 +115,4 @@ document.addEventListener('keydown', (e) => {
         setNumber(e.key)
     }
 })
+
