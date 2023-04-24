@@ -31,10 +31,6 @@ body {
   overflow: hidden;
 }
 
-input {
-  resize: none;
-}
-
 .page-container {
   position: relative;
   width: 100vw;
@@ -303,4 +299,10 @@ main {
 
 .opacity {
   opacity: 1;
+}
+
+input {
+  color: red;
+  -ms-touch-action: none;
+      touch-action: none;
 }/*# sourceMappingURL=style.css.map */
