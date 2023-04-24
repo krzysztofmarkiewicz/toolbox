@@ -299,10 +299,4 @@ main {
 
 .opacity {
   opacity: 1;
-}
-
-input {
-  color: red;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
 }/*# sourceMappingURL=style.css.map */
