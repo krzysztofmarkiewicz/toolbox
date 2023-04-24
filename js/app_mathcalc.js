@@ -26,7 +26,7 @@ const setNumber = (el) => {
     currentNumber = parseFloat(currentNumber)
     resultInput.value = currentNumber
 }
-const funct = (e) => {
+const compute = (e) => {
 
     const mathOperation = (e) => {
         switch (e) {
@@ -85,8 +85,24 @@ const funct = (e) => {
         }
     }
     if (e.target.innerText === '%') {
-        resultInput.value = recentNumber * resultInput.value * 0.01
-        currentNumber = resultInput.value
+        if (recentNumber === '') {
+            resultInput.value = resultInput.value * 0.01
+            currentNumber = resultInput.value
+        } else {
+            resultInput.value = recentNumber * resultInput.value * 0.01
+            currentNumber = resultInput.value
+        }
+    }
+    if (e.target.innerText === '=') {
+        if (operator === recentOperator) {
+            return
+        } else {
+            resultInput.value = parseFloat(mathOperation(operator))
+            currentNumber = resultInput.value
+            recentOperator = operator
+
+            console.log(mathOperation(operator))
+        }
     }
 
 
@@ -107,7 +123,7 @@ const funct = (e) => {
 
 
 calcBtns.forEach(el => {
-    el.addEventListener('click', funct)
+    el.addEventListener('click', compute)
 })
 
 document.addEventListener('keydown', (e) => {
@@ -115,4 +131,3 @@ document.addEventListener('keydown', (e) => {
         setNumber(e.key)
     }
 })
-

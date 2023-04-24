@@ -28,7 +28,6 @@ body {
   position: relative;
   font-family: "Montserrat", sans-serif;
   background-color: var(--secondColor);
-  overflow: hidden;
 }
 
 .page-container {
