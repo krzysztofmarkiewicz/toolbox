@@ -31,6 +31,10 @@ body {
   overflow: hidden;
 }
 
+input {
+  resize: none;
+}
+
 .page-container {
   position: relative;
   width: 100vw;
