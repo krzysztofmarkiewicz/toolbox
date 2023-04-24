@@ -303,6 +303,6 @@ main {
 
 input {
   color: red;
-  -ms-touch-action: none;
-      touch-action: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
 }/*# sourceMappingURL=style.css.map */
