@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <!-- <img src="./assets/mathcalc_bgc_dark.jpeg"
-     class="page-bgc"> -->
-
+    <div class="page-bgc">
+        <div class="bgc-shadow"></div>
+    </div>
     <div class="page-container">
 
         <nav class="nav">
@@ -75,7 +75,7 @@
 
                         </form>
                     </div>
-                    <div class="results">
+                    <div class="results results--loancalc">
                         <div class="results__buttons ">
                             <button class="result-button result-button--loancalc  result-button--active table">Raty
                                 równe</button>
@@ -1269,17 +1269,18 @@
                     </div>
                 </div>
             </section>
-            <section class="app app-mathcalc hide">
+            <section class="app app-mathcalc hide ">
                 <h2 class="app__header">Kalkulator</h2>
                 <div class="wrap-app">
                     <div class="data">
                         <form action="" method="get" class="data-form">
                             <div class="app__item">
-                                <label for="mathCalc">Kwota kredytu</label>
-                                <input type="number" readonly="readonly" min="0" max="3000000" step="1" pattern="\d*"
-                                    name="mathCalc" placeholder=""
+                                <label for="mathCalc"></label>
+                                <div class="data-form__form-item data-form__form-item--mathCalc mathCalcResult">0</div>
+                                <!-- <input type="number" readonly="readonly" min="0" max="3000000" step="1" pattern="\d*"
+                                    name="mathCalc" placeholder="0"
                                     class="data-form__form-item data-form__form-item--mathCalc mathCalcResult"
-                                    value="0">
+                                    value="0"> -->
                             </div>
                         </form>
 
@@ -1319,25 +1320,25 @@
                                     class="app__btn app__btn--mathcalc mathCalcBtn">+</button>
                                 <button type="submit" type-btn="number"
                                     class="app__btn app__btn--mathcalc mathCalcBtn app__btn--mathcalc0">0</button>
-                                <button type="submit" class="app__btn app__btn--mathcalc mathCalcBtn">,</button>
-                                <button type="submit" type-btn="operatory"
+                                <button type="submit" type-btn=""
+                                    class="app__btn app__btn--mathcalc mathCalcBtn">.</button>
+                                <button type="submit" type-btn=""
                                     class="app__btn app__btn--mathcalc mathCalcBtn">=</button>
                             </div>
                         </div>
 
 
                     </div>
-                    <div class="results">
+                    <div class="results results--mathCalc">
                         <div class="results__buttons">
-                            <button class="result-button memoryBtn">Pamięć</button>
-                            <div class="result memory hide">ccc
+                            <button class="result-button memoryBtn">Historia</button>
+                            <button class="app__btn app__btn--clear-history">Wyczyść historię</button>
+                            <div class="result result--memory">
                             </div>
                         </div>
                         <div class="results__buttons ">
                             <button class="result-button saveResultsBtn">Zapisane wyniki</button>
-                            <div class="result saveResults ">
-
-
+                            <div class="result saveResults hide">
                             </div>
                         </div>
                     </div>

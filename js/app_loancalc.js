@@ -11,7 +11,6 @@ const resultStable = document.querySelector('.result__stable-installments')
 const resultDecreasing = document.querySelector('.result__decreasing-installments')
 const allInputs = document.querySelectorAll('.data-form__form-item')
 
-// console.log(document.documentElement.style.getPropertyValue());
 const clearError = el => {
     el.classList.remove('error')
 }

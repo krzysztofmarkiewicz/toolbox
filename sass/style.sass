@@ -1,42 +1,29 @@
-:root
-    --firstColor: rgba(241, 241, 233, 1)
-    --secondColor: rgba(255, 255, 247, 1)
-    --thirdColor: rgb(110, 107, 96)
-    --thirdColorDarker: rgba(110, 107, 96, .95)
-    --thirdColorDarkest: rgba(110, 107, 96, .80)
-    --fourthColor: rgb(158, 3, 3)
-html[data-theme="dark"]
-    --firstColor: rgb(44, 44, 44)
-    --secondColor: rgb(78, 78, 78)
-    --thirdColor: rgb(222, 221, 221)
-    --thirdColorDarker: rgba(222, 221, 221,.95)
-    --thirdColorDarkest: rgba(222, 221, 221,.80)
-    --thirdColorL: rgba(222, 221, 221, 90)
-
+@import reset
+@import colors
 
 $navWidth: 300px
-
-*
-    box-sizing: border-box
-    margin: 0
-    padding: 0
-    color: var(--thirdColor)
-
-
-
 
 body
     position: relative
     font-family: 'Montserrat', sans-serif
-    background-color: var(--secondColor)
+    // background-image: url(../assets/math_bgc.png)
+    // background-size: cover
     
-// .page-bgc
-//     opacity: 1
-//     position: absolute
-//     left: 0
-//     top: 0
-//     width: 100vw
-//     height: 100%
+
+.page-bgc
+    opacity: 1
+    position: absolute
+    left: 0
+    top: 0
+    width: 100vw
+    height: 100%
+    background-image: url(../assets/math_bgc_3500_3313.png)
+    background-size: contain
+    .bgc-shadow
+        width: 100vw
+        height: 100vh
+        background-color: var(--shadowBgcRGB)
+
 
 .page-container
     position: relative
@@ -46,7 +33,7 @@ body
     grid-template-rows: 1fr
     gap: 0px 0px
     grid-template-areas: ". ."
-    background-color: var(--secondColor)
+
     
 
 //---NAVIGATION--------------------------------------------------------
@@ -57,22 +44,24 @@ body
     top: 0
     right: 0
     padding: 20px
-    background-color: var(--firstColor)
-
+    background-color: rgba(var(--firstColorRGB),.5)
 
     border-left: 1px solid var(--thirdColor)
     overflow: scroll
-    transition: right .5s
+    transition: right 1s
     h1
         font-weight: 700
         margin-bottom: 20px
     ul
         list-style: none
-        a
-            font-size: 18px
-            text-decoration: none
-            &:hover
-                color: var(--fourthColor)
+        li
+            padding: 10px 10px
+            a
+                padding: 10px 10px
+                font-size: 18px
+                text-decoration: none
+                &:hover
+                    color: var(--fourthColor)
 
 .activeNavItem
     color: var(--fourthColor)
@@ -82,29 +71,22 @@ body
     
 //---MAIN--------------------------------------------------------
 .wrap-app
-
 main
     display: flex
     flex-direction: row
     justify-content: center
-    align-content: center
-    align-items: center
     flex-wrap: wrap
-    // height: 100vh
     overflow: scroll
+    height: 100vh
+
 .app
     opacity: 0
-    transition: opacity .3s
+    transition: opacity 1s
     display: flex
     flex-direction: column
-    align-self: center
     min-width: 300px
     position: relative
-    margin-top: 30px
     width: 600px
-    
-    border-radius: 50px
-    padding: 20px
     overflow: hidden
     &__header
         text-align: center
@@ -141,7 +123,11 @@ main
             font-size: 30px
         &--mathcalc0
             grid-area: 5 / 1 / 6 / 3
-        
+        &--clear-history
+            width: 50%   
+            height: 20px
+            margin-left: 25%
+
 
         &:hover
             background-color: var(--thirdColorDarker)
@@ -164,9 +150,13 @@ main
         border: 0
         border-radius: 20px
         &--mathCalc
-            text-align: right
+            display: flex
+            justify-content: flex-end
+            white-space: nowrap
+            overflow: hidden
             cursor: pointer
             font-size: 30px
+            
 
     &__number
         border-radius: 20px 0 0 20px
@@ -180,8 +170,8 @@ main
     display: flex
     position: relative
     width: 100%
-    height: 200px
     margin: 20px 0
+    overflow: scroll
     &__buttons
         width: 50%
         .result-button
@@ -193,14 +183,19 @@ main
             &--active
                 border-bottom: 2px solid
                 padding: 0 40px
+    &--loancalc
+        height: 200px
+
     .result
-        position: absolute
+        position: relative
         left: 0
-        width: 100%
-        height: 160px
-        margin: 20px
         overflow: scroll
-        word-break: break-all
+        // word-break: break-all
+        &--memory
+            display: flex
+            flex-direction: column-reverse
+            padding: 0 20px
+            width: 100%
         p
             margin: 5px
 .currency-list
@@ -209,7 +204,7 @@ main
 .search-currency-wrap
     .search-currency
         width: 100%
-    
+
 
 
 .currency-table 
@@ -235,3 +230,4 @@ main
 
 .opacity
     opacity: 1
+    transition: opacity 1.5s
