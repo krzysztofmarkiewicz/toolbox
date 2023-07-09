@@ -48,6 +48,7 @@ const compute = (e) => {
         operator = e.target.innerText
     }
 
+
     if (e.target.getAttribute('type-btn') === 'operator') {
         if (recentNumber === '') {
             recentNumber = resultInput.innerText
@@ -81,11 +82,11 @@ const compute = (e) => {
         } else {
             if (currentNumber === '') {
                 resultInput.innerText = '0.'
-                currentNumber=resultInput.innerText
-                recentNumber=''
+                currentNumber = resultInput.innerText
+                recentNumber = ''
             } else {
                 resultInput.innerText += '.'
-                currentNumber=resultInput.innerText
+                currentNumber = resultInput.innerText
             }
         }
 
@@ -103,29 +104,19 @@ const compute = (e) => {
             return
         } else {
             showResult()
-            operator=''
+            operator = ''
 
         }
     }
-
-
-
-    const cclg = () => {
-        console.clear();
-        console.log(`operator = ${operator}    TYP:${typeof operator}`)
-        console.log(`currentNumber = ${currentNumber}    TYP:${typeof currentNumber}`)
-        console.log(`recentNumber = ${recentNumber}    TYP:${typeof recentNumber}`)
-        console.log(`resultInput.innerText = ${resultInput.innerText }    TYP:${typeof resultInput.innerText }`)
-    }
-    cclg()
-
 }
 
-const clearHistory=(e)=>{
-    history.innerHTML=''
-    // e.target.classList.add('hide')
+const clearHistory = (e) => {
+    history.innerHTML = ''
+    e.target.classList.add('hide')
 }
 
+
+//listeners
 calcBtns.forEach(el => {
     el.addEventListener('click', compute)
 })
@@ -135,7 +126,8 @@ document.addEventListener('keydown', (e) => {
         console.log(e.key);
         console.log(typeof e.key);
         currentNumber += e.key
-        resultInput.innerText = currentNumber}
+        resultInput.innerText = currentNumber
+    }
 })
 
 clearHistoryBtn.addEventListener('click', clearHistory)

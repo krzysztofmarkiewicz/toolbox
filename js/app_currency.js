@@ -4,7 +4,6 @@ const currencyFirst = document.querySelector('.currency-first')
 const currencySecond = document.querySelector('.currency-second')
 const amountFirst = document.querySelector('.amount-first')
 const amountSecond = document.querySelector('.amount-second')
-
 const searchCurrency = document.querySelector('.search-currency')
 const listOfCurrency = document.querySelectorAll('.currency-tr')
 
@@ -36,6 +35,7 @@ request.onload = function () {
     currencyFirst.value = 'EUR'
     currencySecond.value = 'PLN'
 
+    //function  calculates currency
     const changeCurrency = (e) => {
 
         const c1 = currencyFirst.value
